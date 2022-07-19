@@ -23,6 +23,7 @@ const Search = ({ query, setData, setQuery }) => {
     <>
       <form onSubmit={handleSubmit}>
         <input
+          className="border border-dark"
           type="text"
           name="movie"
           id="movie"
