@@ -9,6 +9,7 @@ import MovieDetail from "../pages/MovieDetail";
 import PrivateRouter from "../router/PrivateRouter";
 import Register from "../pages/Register";
 import MovieCard from "../components/MovieCard";
+import Search from "../pages/Search";
 
 const Router = () => {
   return (
@@ -23,6 +24,9 @@ const Router = () => {
           <Route path="movicard" element={<MovieCard />} />
           <Route path="/:id" element={<PrivateRouter />}>
             <Route path="" element={<MovieDetail />} />
+          </Route>
+          <Route path="/search" element={<PrivateRouter />}>
+            <Route path="" element={<Search />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

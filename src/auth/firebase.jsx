@@ -38,8 +38,11 @@ export const register = async (email, password) => {
 //     // ..
 //   });
 export const login = async (email, password) => {
+  console.log(email, password);
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
+    const temp = await signInWithEmailAndPassword(auth, email, password);
+    console.log("temp", temp);
     return user;
   } catch (error) {
     toast.error(error.message);

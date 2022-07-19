@@ -13,7 +13,11 @@ const Search = ({ query, setData, setQuery }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchData();
+    if (localStorage.getItem("user")) {
+      searchData();
+    } else {
+      alert("Please login");
+    }
   };
   return (
     <>

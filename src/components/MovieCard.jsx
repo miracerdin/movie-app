@@ -20,7 +20,6 @@ const MovieCard = ({ data, handleSubmit, setData }) => {
     <Div>
       {data?.map((item, index) => {
         const { id, title, poster_path } = item;
-        console.log(item);
         return (
           <div
             key={index}
