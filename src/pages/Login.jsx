@@ -8,14 +8,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await login(email, password);
+    const user = await login(email, password, navigate);
     dispatch(loginHandle(user));
-    navigate("/", { replace: true });
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 500);
     setEmail("");
     setPassword("");
   };
@@ -62,9 +62,18 @@ const Login = () => {
             />
           </div>
         </div>
+        <a href="" className="text-left link">
+          Forgot password?
+        </a>
+        <a href=""></a>
         <div>
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary w-100" type="submit">
             Login
+          </button>
+        </div>
+        <div>
+          <button className="btn btn-primary w-100" type="submit">
+            CONTİNUE WİTH GOOGLE
           </button>
         </div>
       </form>

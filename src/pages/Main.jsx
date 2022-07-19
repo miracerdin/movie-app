@@ -10,6 +10,7 @@ const Main = () => {
   return (
     <div>
       <Search query={query} setData={setData} setQuery={setQuery} />
+      <br />
       <MovieCard data={data} setData={setData} />
     </div>
   );

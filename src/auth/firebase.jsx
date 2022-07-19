@@ -18,31 +18,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
-export const register = async (email, password) => {
+export const register = async (email, password, navigate) => {
   try {
-    const { user } = createUserWithEmailAndPassword(auth, email, password);
+    const { user } = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    navigate("/", { replace: true });
     return user;
   } catch (error) {
     toast.error(error.message);
   }
 };
 
-//   .then((userCredential) => {
-//     // Signed in
-//     const user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // ..
-//   });
-export const login = async (email, password) => {
+export const login = async (email, password, navigate) => {
   console.log(email, password);
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
-    const temp = await signInWithEmailAndPassword(auth, email, password);
-    console.log("temp", temp);
+    navigate("/", { replace: true });
     return user;
   } catch (error) {
     toast.error(error.message);

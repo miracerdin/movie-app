@@ -7,10 +7,10 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const user = await register(email, password);
-    navigate("/login", { replace: true });
+    register(email, password, navigate);
+
     window.location.reload();
     setEmail("");
     setPassword("");
@@ -59,7 +59,7 @@ const Register = () => {
           </div>
         </div>
         <div>
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary w-100" type="submit">
             Register
           </button>
         </div>
