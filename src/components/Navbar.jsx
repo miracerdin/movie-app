@@ -1,14 +1,17 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import Nav1 from "./Navbar.styled.jsx";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const handleReload = () => {
+    navigate("/");
     window.location.reload();
   };
   const local = JSON.parse(localStorage.getItem("user"));
   const handleLocalClear = () => {
     localStorage.clear();
+    navigate("/");
     window.location.reload();
   };
 
