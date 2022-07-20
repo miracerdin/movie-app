@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../auth/firebase";
+import { login, signUpProvider } from "../auth/firebase";
 import { useNavigate } from "react-router-dom";
 import { login as loginHandle } from "../store/auth";
 const Login = () => {
@@ -19,7 +19,9 @@ const Login = () => {
     setEmail("");
     setPassword("");
   };
-
+  const handleProviderLogin = () => {
+    signUpProvider(navigate("/"));
+  };
   return (
     <>
       <form
@@ -72,7 +74,11 @@ const Login = () => {
           </button>
         </div>
         <div>
-          <button className="btn btn-primary w-100" type="submit">
+          <button
+            className="btn btn-primary w-100"
+            type="submit"
+            onClick={handleProviderLogin}
+          >
             CONTİNUE WİTH GOOGLE
           </button>
         </div>

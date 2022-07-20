@@ -19,11 +19,11 @@ const MovieCard = ({ data, handleSubmit, setData }) => {
   return (
     <Div>
       {data?.map((item, index) => {
-        const { id, title, poster_path } = item;
+        const { id, title, poster_path, vote_average } = item;
         return (
           <div
             key={index}
-            className="bg-primary"
+            className="bg-primary cursor-pointer"
             onClick={() => navigate(`${id}`, { state: item, replace: false })}
           >
             <DivImg>
@@ -33,7 +33,14 @@ const MovieCard = ({ data, handleSubmit, setData }) => {
                   alt="homepage"
                 />
               </div>
-              <h2>{title}</h2>
+              <div className="d-flex justify-between overflow-hidden align-middle">
+                <h2>{title}</h2>
+                {JSON.parse(localStorage.getItem("user")) ? (
+                  <span className="bg-danger text-white p-2 max-h-8">
+                    {vote_average}
+                  </span>
+                ) : null}
+              </div>
             </DivImg>
             {/* <Parag>{item.overview}</Parag> */}
           </div>
