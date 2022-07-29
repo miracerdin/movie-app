@@ -45,6 +45,7 @@ const MovieDetail = () => {
           <Img
             src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
             alt="poster_path"
+            width="250px"
           />
         </DivImg>
         <DivGen>

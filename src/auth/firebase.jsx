@@ -7,7 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -48,6 +48,7 @@ export const login = async (email, password, navigate) => {
 export const Logout = async () => {
   try {
     await signOut(auth);
+    toast.success("You successfully logged out.");
     return true;
   } catch (error) {
     toast.error(error.message);
@@ -59,6 +60,7 @@ export const signUpProvider = (navigate) => {
   signInWithPopup(auth, provider)
     .then((result) => {
       console.log(result);
+      toast.success("You successfully logged in. 😎");
       navigate("/");
     })
     .catch((error) => {
