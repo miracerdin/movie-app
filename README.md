@@ -43,11 +43,9 @@ SOLUTION
 └── yarn.lock
 ```
 
-![Project 005 Snapshot](movie-app_structure.png)
+## Snapshot
+![mavie_app](https://user-images.githubusercontent.com/99042499/182117729-e8c5fe56-1352-4875-9794-1f83c6dcec03.png)
 
-## Expected Outcome
-
-![Project 005 Snapshot](movie-app.gif)
 
 ## Objective
 
